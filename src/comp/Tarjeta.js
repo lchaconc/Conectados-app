@@ -78,8 +78,8 @@ const nombreFace =(url)=> {
               <div className="card-footer text-muted">
                 <i className="fab fa-whatsapp-square ico-what texto-1"></i> <span className="texto-1" > {props.item.telefono} </span>
                 <br/>
-                <a href={props.item.url} target="_blnak"  >
-                    <i className="fab fa-facebook-square texto-1"></i> <span className="texto-1" > {nombreFace(props.item.url)}                     </span>
+                <a href={props.item.face} target="_blnak"  >
+                    <i className="fab fa-facebook-square texto-1"></i> <span className="texto-1" > {nombreFace(props.item.face)}                     </span>
                 </a>            
               </div>
             </div>
