@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Tarjeta from './comp/Tarjeta';
+
+const item= {
+  likes: 5,
+  dislikes: 0,
+  imagen: "https://cdn2.salud180.com/sites/default/files/field/image/2016/02/salon111.jpg",
+  nombre: "Salón de belleza Elena",
+  descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.",
+  url: "https://www.facebook.com/saladebellezamarme/",
+  telefono: "2255-8899"
+ };
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="row">
+          <Tarjeta item={item} />
     </div>
   );
 }
