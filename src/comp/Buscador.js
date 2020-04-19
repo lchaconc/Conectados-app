@@ -7,10 +7,15 @@ function Buscador(props) {
 
     return (
         <React.Fragment>
+            <div className="jumbotron text-center">
+                <h1>
+                    Conectados
+                </h1>
+            </div>
             <div className="row">
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
-                        <label className="input-group-text" htmlFor="inputGroupSelect01">Opciones</label>
+                        <label className="input-group-text" htmlFor="inputGroupSelect01">Seleccione una opción</label>
                     </div>
                     <select className="custom-select" id="inputGroupSelect01">
                         <option defaultValue>Todos las categorías</option>
@@ -22,7 +27,7 @@ function Buscador(props) {
             </div>
             <div className="row">
       {
-        props.array.map((item,i)=>(
+        props.arrayComercios.map((item,i)=>(
           <Tarjeta item={item} key={"tarjeta"+i} />
         ))
       }

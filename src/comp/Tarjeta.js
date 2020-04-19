@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './tarjeta.css';
+import config from '../config.json';
+const assets = config.assetsImg;
 
 const Tarjeta=(props)=> {
   const [like, setLike ] = useState(false);
@@ -25,18 +27,6 @@ const Tarjeta=(props)=> {
   }
 
 
-/*
-Retorna la cantidad de estrellas según el parametro:
-  const estrellas =(cantEstrellas)=> {
-    let arrayEstrellas=[];
-    for (let index = 0; index < cantEstrellas; index++) {
-        arrayEstrellas.push(
-            <i key={index} className="fas fa-star text-warning"></i>
-        )        
-    }
-    return arrayEstrellas;
-}
-*/
 
 const nombreFace =(url)=> {
     const res = url.replace("https://www.facebook.com/", "");
@@ -67,16 +57,23 @@ const nombreFace =(url)=> {
                 </button>                
               </div>
               <div className="card-body">
-                <img src={ props.item.imagen} alt="imagen del curso" className="img-thumbnail img-previas" />
+                  <img src={ assets + props.item.imagen} alt="imagen negocio" className="img-previas" />
                 <h5 className="card-title">
                     {props.item.nombre}
                 </h5>
+                <p>
+                  <strong>Contacto: { props.item.contacto }</strong>
+                </p>
                 <p className="card-text">
                   {props.item.descripcion}
                 </p>            
               </div>
               <div className="card-footer text-muted">
-                <i className="fab fa-whatsapp-square ico-what texto-1"></i> <span className="texto-1" > {props.item.telefono} </span>
+                <i className="fas fa-clock"> {props.item.horario}  </i>
+                <hr/>
+                <i className="fas fa-map-marker-alt"> {props.item.ubicacion }</i>  
+                <hr/>
+                <i className="fab fa-whatsapp-square ico-what texto-1"></i> <span className="texto-1" > {props.item.telefono1} </span>
                 <br/>
                 <a href={props.item.face} target="_blnak"  >
                     <i className="fab fa-facebook-square texto-1"></i> <span className="texto-1" > {nombreFace(props.item.face)}                     </span>

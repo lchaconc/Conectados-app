@@ -1,42 +1,107 @@
-import React from 'react';
+import React, {useState,  useEffect} from 'react';
 import Buscador from './comp/Buscador';
+import Splash from './comp/Splash';
+import config from './config.json';
+
+var arrayTipos=null;
+var arrayComercios=null;
 
 const arrayGeneral=[ 
   {
   likes: 5,
-  dislikes: 0,
-  imagen: "https://cdn2.salud180.com/sites/default/files/field/image/2016/02/salon111.jpg",
+  dislikes: 0,  
   nombre: "Salón de belleza Elena",
   descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.",
   face: "https://www.facebook.com/saladebellezamarme/",
-  telefono: "2255-8899"
+  telefono1: "2255-8899",  
+  telefono2: "",
+  imagen: "http://192.168.0.18/conectados-app/server/assets/img/belleza.png",
+  horario: "Lunes a sábado de 7 am - 3 pm",
+  ubicacion: "Casa 27D",
+  contacto: "Elena Prado"
+
+ },
+ {
+  likes: 5,
+  dislikes: 0,  
+  nombre: "Reparaciones El Macho Bueno",
+  descripcion: "Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado",
+  face: "https://www.facebook.com/machobueno/",
+  telefono1: "2255-8899",  
+  telefono2: "",
+  imagen: "http://192.168.0.18/conectados-app/server/assets/img/vendedor.png",
+  horario: "Lunes a sábado de 7 am - 3 pm",
+  ubicacion: "Casa 27D",
+  contacto: "Elena Prado"
+
  },
  {
   likes: 25,
-  dislikes: 2,
-  imagen: "https://data.viaje-a-china.com/kcfinder/upload/vac/ly/ji(1).jpg",
+  dislikes: 2,  
   nombre: "El gallo veloz",
   descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.",
   face: "https://www.facebook.com/GreenwichPizza/",
-  telefono: "2255-9964"
+  telefono1: "2255-9964",
+  telefono2: "",
+  imagen: "http://192.168.0.18/conectados-app/server/assets/img/mensajero.png",
+  horario: "Lunes a sábado de 7 am - 3 pm",
+  ubicacion: "Casa 27D",
+  contacto: "Elena Prado"
  },
  {
   likes: 8,
-  dislikes: 5,
-  imagen: "https://okdiario.com/img/2019/12/23/postres-nochebuena.jpg",
+  dislikes: 5,  
   nombre: "Dulces Momentos",
   descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.",
   face: "https://www.facebook.com/DulcesMomentos/",
-  telefono: "2885-9964"
+  telefono1: "2885-9964",
+  telefono2: "",
+  imagen: "http://192.168.0.18/conectados-app/server/assets/img/postre.png",
+  horario: "Lunes a sábado de 7 am - 3 pm",
+  ubicacion: "Casa 27D",
+  contacto: "Elena Prado"
  }
 
 ]
 
 
 function App() {
+  const [isCargado, setIsCargado] = useState(false);
+
+  async function obtenerDatos () {
+    let resp=null;
+    resp = await fetch(config.apiServ+"obtener_tipos.php"  );
+    arrayTipos = await  resp.json();
+    console.log("arrayTipos",arrayTipos);
+
+    resp = await fetch(config.apiServ+"obtener_comercios.php"  );
+    arrayComercios = await  resp.json();
+    console.log("arrayComercios",arrayComercios);   
+    
+
+    setIsCargado(true);
+  }
+
+  useEffect(()=>{
+    obtenerDatos();
+  },[]);
+
+  useEffect(()=>{
+    console.log("isCargado",isCargado);
+    
+  })
+
+  
+
   return (
    <div className="container">
-     <Buscador array={arrayGeneral} />
+     {
+      isCargado ?
+      <Buscador arrayComercios={arrayComercios} />
+      :
+      <Splash />
+     }
+     
    </div>    
   );
 }
