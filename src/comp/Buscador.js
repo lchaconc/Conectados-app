@@ -19,9 +19,11 @@ function Buscador(props) {
                     </div>
                     <select className="custom-select" id="inputGroupSelect01">
                         <option defaultValue>Todos las categorías</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        {
+                            props.arrayTipos.map((item,i)=>(
+                                <option key={"tipo"+i} value={item.id}> {item.nombreTipo} </option>
+                            ))
+                        }
                     </select>
                 </div>
             </div>
