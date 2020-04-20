@@ -11,7 +11,12 @@ function Buscador(props) {
     function handleCargarFiltrados(e) {
         const idTipo=parseInt(e.target.value);
         console.log(idTipo);
-        setArrayComercios( filtrar(props.arrayComercios, "idTipo", idTipo ) )        
+        if (idTipo!==-1) {
+            setArrayComercios( filtrar(props.arrayComercios, "idTipo", idTipo ) )            
+        } else {
+            setArrayComercios(props.arrayComercios);
+        }
+        
     }
 
 
@@ -19,7 +24,7 @@ function Buscador(props) {
         <React.Fragment>
             <div className="jumbotron text-center">
                 <h1>
-                    Conectados
+                    Portón del Prado en Línea
                 </h1>
             </div>
             <div className="row">
@@ -32,7 +37,7 @@ function Buscador(props) {
                         id="inputGroupSelect01"
                         onChange={handleCargarFiltrados}
                         >
-                        <option defaultValue>Todos las categorías</option>
+                        <option defaultValue value={-1} >Todos las categorías</option>
                         {
                             props.arrayTipos.map((item,i)=>(
                                 <option key={"tipo"+i} value={item.idTipo}> {item.nombreTipo} </option>
@@ -47,13 +52,13 @@ function Buscador(props) {
                 arrayComercios.map((item,i)=>(
                 <Tarjeta item={item} key={"tarjeta"+i} />
                 )) :
-                <p className="text-center text-info">
+                <div className="text-center text-info">
                     <h4>
                     Todavía no hay opciones para esta categoría. <br/>
                     Lo sentimos <br/> 
                     <i className="fas fa-frown-open"></i> 
                     </h4>
-                </p>
+                </div>
 
       }
           
