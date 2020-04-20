@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 19, 2020 at 06:08 PM
+-- Generation Time: Apr 20, 2020 at 02:57 AM
 -- Server version: 5.7.29
 -- PHP Version: 7.3.12
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `comercios` (
 
 INSERT INTO `comercios` (`idComercio`, `nombre`, `idTipo`, `descripcion`, `telefono1`, `telefono2`, `contacto`, `face`, `horario`, `ubicacion`, `likes`, `dislikes`, `imagen`, `fechaIngreso`) VALUES
 (1, 'Salón de belleza Elena', 12, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'belleza.png', '2020-04-19 06:28:48'),
-(2, 'Reparaciones El Macho Bueno', 22, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'vendedor.png', '2020-04-19 06:28:48'),
+(2, 'Reparaciones El Macho Bueno', 22, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'multiservicio.png', '2020-04-19 06:28:48'),
 (3, 'El Gallo Veloz', 21, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'mensajero.png', '2020-04-19 06:28:48'),
 (4, 'Dulces momentos', 9, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'postre.png', '2020-04-19 06:28:48'),
 (5, 'El fogón de Mima', 9, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'comida.png', '2020-04-19 06:28:48');
@@ -68,36 +68,37 @@ DROP TABLE IF EXISTS `tipos`;
 CREATE TABLE IF NOT EXISTS `tipos` (
   `idTipo` int(64) NOT NULL AUTO_INCREMENT,
   `nombreTipo` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `descripcion` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descripcionTipo` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icono` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idTipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tipos`
 --
 
-INSERT INTO `tipos` (`idTipo`, `nombreTipo`, `descripcion`) VALUES
-(1, 'Pulpería', NULL),
-(2, 'Panadería', NULL),
-(3, 'Super/miniSuper', NULL),
-(4, 'Cuido animales', NULL),
-(5, 'Atención médica/Enfermeía/Cuidado adulto mayor', NULL),
-(6, 'Ferretería', NULL),
-(8, 'Carnicería', NULL),
-(9, 'Comida/Alimentación/Postres', NULL),
-(10, 'Otro', NULL),
-(11, 'Salud', NULL),
-(12, 'Belleza/estética', NULL),
-(13, 'Librería', NULL),
-(14, 'Bazar', NULL),
-(15, 'Lavacar', NULL),
-(16, 'Lavandería', NULL),
-(17, 'Mecánico automotriz', NULL),
-(18, 'Tiendas/Ropa/Calzado', NULL),
-(19, 'Arte/Artesanía', NULL),
-(20, 'Costura/Sastretía/Arreglo ropa', NULL),
-(21, 'Mensajería/Envío de paquetes', NULL),
-(22, 'Multiservicios/Construcción/Remodelaciones', NULL);
+INSERT INTO `tipos` (`idTipo`, `nombreTipo`, `descripcionTipo`, `icono`) VALUES
+(4, 'Mascotas', 'Pasear mascotas, Grooming, Veterinaria y más.', 'mascotas'),
+(6, 'Ferretería', 'Herramientas, artículos construcción y más.', 'ferreteria'),
+(9, 'Comida', 'Desayunos, Comidas rápidas, Tamales, Repostería y más.', 'comida'),
+(10, 'Otro', 'Otra categoría no listada.', 'otro'),
+(11, 'Salud', 'Medicina, Psicología, Enfermería, Odontología y más.', 'salud'),
+(12, 'Belleza', 'Peluquería, Estética, Maquillaje, Uñas y más.', 'belleza'),
+(15, 'Lavacar', 'Lavado de automóviles.', 'lavacar'),
+(17, 'Mecánica', 'Mecaníca automotriz en general.', 'mecanico'),
+(20, 'Corte y confección', 'Confección de prendas, Arreglos y más', 'corte_confeccion'),
+(21, 'Mensajería', 'Envío de paquetes, encargos, mandados y más.', 'mensajero'),
+(22, 'Multiservicios', 'Construcción, Remodelación, Reparaciones, Pintura y más.', 'multiservicio'),
+(23, 'Arte', 'Artesanías, Sublimación, Diseño y más', 'arte'),
+(24, 'Decoración', 'Arreglos Florales, adornos y más', 'decoracion'),
+(25, 'Transporte', 'Taxi, Transporte Estudiantil, Excursiones y más', 'transporte'),
+(27, 'Servicios secretariales', 'Digitación y más.', 'secretaria'),
+(28, 'Alquiler', 'Casas, Departamentos, Garajes, Equipo y más.', 'alquiler'),
+(29, 'Ventas', 'Catálogos, Ropa, Celulares, Plantas, ventas de Garaje y más.', 'ventas'),
+(30, 'Lecciones', 'Académicas, Conducir, Instrumentos y más.', 'lecciones'),
+(31, 'Contaduría', 'Servicios Profesionales, Asesorías y más.', 'contaduria'),
+(32, 'Servicios de apoyo', 'Empleada doméstica, Niñera, Compañía para Adulto Mayor y más.', 'sericiosapoyo'),
+(33, 'Reparaciones', 'Celulares, Computadoras, Electrodomésticos y más.', 'reparaciones');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

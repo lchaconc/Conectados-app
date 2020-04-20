@@ -1,5 +1,6 @@
 import React from 'react';
 import loader from '../assets/img/loader.gif';
+import familia from '../assets/img/familia.png';
 
 
 function Splash () {
@@ -9,7 +10,12 @@ function Splash () {
         <div className="container">
             <div className="row">
                 <div className="col-sm-12 text-success text-center">
-                    <h1>Negocios Conectados</h1>
+                    <h1>Portón del Prado en Línea</h1>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-sm-12 text-center">
+                    <img src={familia} alt="Familia" className="img-splash"/>
                 </div>
             </div>
 

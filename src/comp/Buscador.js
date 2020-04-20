@@ -6,15 +6,18 @@ import filtrar from '../modulos/filtrar';
 
 function Buscador(props) {
 
-    const [arrayComercios, setArrayComercios] = useState(props.arrayComercios);
+    const [arrayComercios, setArrayComercios]= useState(props.arrayComercios);
+    const [descripcionTipo, setDescripcionTipo]= useState("Mostrando todas las categorías...");
 
     function handleCargarFiltrados(e) {
         const idTipo=parseInt(e.target.value);
         console.log(idTipo);
         if (idTipo!==-1) {
-            setArrayComercios( filtrar(props.arrayComercios, "idTipo", idTipo ) )            
+            setArrayComercios( filtrar(props.arrayComercios, "idTipo", idTipo ) );
+            setDescripcionTipo( filtrar( props.arrayTipos, "idTipo", idTipo )[0].descripcionTipo   );
         } else {
             setArrayComercios(props.arrayComercios);
+            setDescripcionTipo("Mostrando todas las categorías...");
         }
         
     }
@@ -46,18 +49,27 @@ function Buscador(props) {
                     </select>
                 </div>
             </div>
+
+            <div className="row">
+                <div className="col-sm-12 font-italic text-center  my-2 alert alert-info">
+                    <h5>{descripcionTipo}</h5>
+                </div>
+            </div>
+
             <div className="row">
       {
         arrayComercios.length > 0 ?         
                 arrayComercios.map((item,i)=>(
                 <Tarjeta item={item} key={"tarjeta"+i} />
                 )) :
-                <div className="text-center text-info">
-                    <h4>
-                    Todavía no hay opciones para esta categoría. <br/>
-                    Lo sentimos <br/> 
-                    <i className="fas fa-frown-open"></i> 
-                    </h4>
+                <div className="container">
+                            <div className="cols-sm-12 text-center text-info">
+                            <h4>
+                            Todavía no hay opciones para esta categoría. <br/>
+                            Lo sentimos <br/> 
+                            <i className="fas fa-frown-open"></i> 
+                            </h4>
+                        </div>
                 </div>
 
       }
