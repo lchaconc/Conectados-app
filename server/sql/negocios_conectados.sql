@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 20, 2020 at 02:57 AM
+-- Generation Time: Apr 20, 2020 at 04:04 AM
 -- Server version: 5.7.29
 -- PHP Version: 7.3.12
 
@@ -54,9 +54,9 @@ CREATE TABLE IF NOT EXISTS `comercios` (
 INSERT INTO `comercios` (`idComercio`, `nombre`, `idTipo`, `descripcion`, `telefono1`, `telefono2`, `contacto`, `face`, `horario`, `ubicacion`, `likes`, `dislikes`, `imagen`, `fechaIngreso`) VALUES
 (1, 'Salón de belleza Elena', 12, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'belleza.png', '2020-04-19 06:28:48'),
 (2, 'Reparaciones El Macho Bueno', 22, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'multiservicio.png', '2020-04-19 06:28:48'),
-(3, 'El Gallo Veloz', 21, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'mensajero.png', '2020-04-19 06:28:48'),
-(4, 'Dulces momentos', 9, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'postre.png', '2020-04-19 06:28:48'),
-(5, 'El fogón de Mima', 9, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'comida.png', '2020-04-19 06:28:48');
+(3, 'El Gallo Veloz', 21, 'Le hacemos el mandado que necesite: citas médicas, farmacia, compras en supermecados y todo lo que necesite.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'mensajero.png', '2020-04-19 06:28:48'),
+(4, 'Dulces momentos', 9, 'La mejor repostería. Hechas con la receta de la abuela. No se arrepentirá.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'postre.png', '2020-04-19 06:28:48'),
+(5, 'El fogón de Mima', 9, 'Comida casera de la buena... Casadas, empanadas, tortillas de queso y gallos de salchichón.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'comida.png', '2020-04-19 06:28:48');
 
 -- --------------------------------------------------------
 
