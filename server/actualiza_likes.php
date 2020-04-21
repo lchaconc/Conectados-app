@@ -14,7 +14,7 @@ $conexion = conectarDB();
 $id = $dataObject-> id; //id del registro a actualizar
 $valor = $dataObject-> valor;  //Recibe un 1 o un -1 (dependiento de si estaba o no marcado el botón correspondiente)
 $elemento = $dataObject-> elemento;  // Recibe la palabra likes o dislikes
-   $actualizacion = "UPDATE `comercios` SET $elemento=$elemento + $estado WHERE `id`='$id'";
+   $actualizacion = "UPDATE `comercios` SET $elemento=$elemento + $valor WHERE `idComercio`='$id'";
 
    $resultadoActualizacion = mysqli_query($conexion, $actualizacion); 
 
