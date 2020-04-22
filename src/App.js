@@ -1,13 +1,15 @@
 import React, {useState,  useEffect} from 'react';
 import Buscador from './comp/Buscador';
 import Splash from './comp/Splash';
+import Menu from './comp/Menu';
 import config from './config.json';
 
 var arrayTipos=null;
 var arrayComercios=null;
 
 function App() {
-  const [isCargado, setIsCargado] = useState(false);
+  const [isCargado, setIsCargado]= useState(false);
+  const [componente, setComponente]= useState( null );
 
   async function obtenerDatos () {
     let resp=null;
@@ -25,6 +27,7 @@ function App() {
 
   useEffect(()=>{
     obtenerDatos();
+    setComponente(<Menu handleCargarComponente={handleCargarComponente} />)
   },[]);
 
   useEffect(()=>{
@@ -32,13 +35,31 @@ function App() {
     
   })
 
+  const handleCargarComponente=(e)=>{
+    const opcion = e.target.title;
+    console.log(opcion);
+
+    switch (opcion) {
+      case "ofrecemos":
+          setComponente (<Buscador arrayComercios={arrayComercios}  arrayTipos={arrayTipos} />)
+        break;
+    
+      default:
+        break;
+    }
+    
+  }
+
   
 
   return (
    <div className="container">
      {
       isCargado ?
-      <Buscador arrayComercios={arrayComercios}  arrayTipos={arrayTipos} />
+      (
+            componente &&   
+              componente
+      )          
       :
       <Splash />
      }
