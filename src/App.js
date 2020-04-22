@@ -1,7 +1,9 @@
 import React, {useState,  useEffect} from 'react';
 import Buscador from './comp/Buscador';
 import Splash from './comp/Splash';
+import AcercaDe from './comp/AcercaDe';
 import Menu from './comp/Menu';
+import FormServicio from './comp/FormServicio';
 import config from './config.json';
 
 var arrayTipos=null;
@@ -40,11 +42,22 @@ function App() {
     console.log(opcion);
 
     switch (opcion) {
+      case "menu":
+          setComponente (<Menu handleCargarComponente={handleCargarComponente} />)
+      break;
       case "ofrecemos":
-          setComponente (<Buscador arrayComercios={arrayComercios}  arrayTipos={arrayTipos} />)
-        break;
+          setComponente (<Buscador handleCargarComponente={handleCargarComponente} arrayComercios={arrayComercios}  arrayTipos={arrayTipos} />)
+      break;
+      case "ofrezco":
+          setComponente (<FormServicio handleCargarComponente={handleCargarComponente}  arrayTipos={arrayTipos} />)
+      break;
+      case "acerca":
+          setComponente (<AcercaDe handleCargarComponente={handleCargarComponente}  />)
+      break;
     
       default:
+        console.log("opcion fuera de rango");
+        
         break;
     }
     

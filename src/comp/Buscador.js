@@ -29,7 +29,21 @@ function Buscador(props) {
                 <h1>
                     Portón del Prado en Línea
                 </h1>
+                <button 
+                    onClick={props.handleCargarComponente}
+                    title="menu"
+                    className="btn btn-outline-dark">
+                    <i className="fas fa-home"></i> Inicio
+                </button>
             </div>
+            
+            <hr/>
+            <div className="row">
+                <div className="col-sm-12">
+                    <h4 className="text-info">LE OFRECEMOS:</h4>
+                </div>
+            </div>
+
             <div className="row">
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">

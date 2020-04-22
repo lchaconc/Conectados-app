@@ -28,7 +28,7 @@ function Menu(props) {
                 <div className="col-sm-12">
                     <button 
                     onClick={props.handleCargarComponente}
-                    title="ofezco"
+                    title="ofrezco"
                     type="button" 
                     className="btn btn-outline-success btn-lg btn-block">
                         <i className="fas fa-user-edit"></i>
@@ -40,7 +40,11 @@ function Menu(props) {
             <br />
             <div className="row">
                 <div className="col-sm-12">
-                    <button type="button" className="btn btn-outline-info btn-lg btn-block">
+                    <button 
+                    type="button" 
+                    onClick={props.handleCargarComponente}
+                    title="acerca"
+                    className="btn btn-outline-info btn-lg btn-block">
                         <i className="fas fa-user-cog"></i>
                         <br />
                         Acerca de nosotros
