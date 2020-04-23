@@ -43,6 +43,12 @@ function FormServicio(props) {
                     <h4 className="text-info">QUIERO OFRECER:</h4>
                 </div>
             </div>
+            <br/>
+            <div className="row">
+                <div className="col-sm-12 alert alert-danger">
+                    <strong>Importante:</strong> El negocio no será publicado hasta que los datos sean verificados y el pago se haya realizado.
+                </div>
+            </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-group mb-3">
@@ -75,7 +81,7 @@ function FormServicio(props) {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Nombre del comercio o establecimiento"
+                        placeholder="Nombre del negocio. Por ejemplo 'Fogón de doña Chela' "
                         id="selTipo"
                         name="nombre"
                         ref={register({ required: true })}
@@ -87,18 +93,18 @@ function FormServicio(props) {
                     <div className="col-sm-6">
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" id="spnTelefono">Teléfoono</span>
+                                <span className="input-group-text" id="spnTelefono1">Teléfono</span>
                             </div>
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Número de teléfono"
-                                id="txtTelefono"
-                                name="telefono"
+                                placeholder="Número de teléfono para contacto"
+                                id="txtTelefono1"
+                                name="telefono1"
                                 ref={register({ required: true })}
                             />
                         </div>
-                        {errors.telefono && <p className="text-danger" >Teléfono requerido</p>}
+                        {errors.telefono1 && <p className="text-danger" >Teléfono requerido</p>}
                     </div>
 
                     <div className="col-sm-6">
@@ -109,7 +115,7 @@ function FormServicio(props) {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Horario"
+                                placeholder="Horario de atención. Disponibilidad"
                                 id="txtHorario"
                                 name="horario"
                                 ref={register({ required: true })}
@@ -124,34 +130,48 @@ function FormServicio(props) {
 
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="spnDireccion">Dirección</span>
+                        <span className="input-group-text" id="spnDireccion">Ubicación</span>
                     </div>
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Dirección"
-                        id="txtDireccion"
-                        name="direccion"
+                        placeholder="Ubicación (Número de casa)"
+                        id="txtUbicacion"
+                        name="ubicacion"
                         ref={register({ required: true })}
                     />
                 </div>
-                {errors.direccion && <p className="text-danger" >Dirección requerido</p>}
+                {errors.ubicacion && <p className="text-danger" >Ubicación requerida</p>}
+
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="spnFace">Página de Facebook</span>
+                    </div>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Dirección de pagina de Facebook del negocio"
+                        id="txtFace"
+                        name="face"
+                        ref={register}
+                    />
+                </div>
 
 
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="spnDireccion">Detalles del servicio</span>
+                        <span className="input-group-text" id="spnDescripcion">Descripción</span>
                     </div>
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Detalles"
-                        id="txtDetalle"
-                        name="detalle"
+                        placeholder="Descripción o detalles del servicio o negocio"
+                        id="txtDescripcion"
+                        name="descripcion"
                         ref={register({ required: true })}
                     />
                 </div>
-                {errors.detalle && <p className="text-danger" >Detalle requerido</p>}
+                {errors.descripcion && <p className="text-danger" >Descripción requerido</p>}
 
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
@@ -160,7 +180,7 @@ function FormServicio(props) {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Persona que a cargo del negocio"
+                        placeholder="Persona que a cargo del negocio o de contacto para información"
                         id="txtContacto"
                         name="contacto"
                         ref={register({ required: true })}
