@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import config from '../config.json';
 
 
 
@@ -12,7 +13,7 @@ function FormServicio(props) {
 
         axios({
             method: 'post',
-            url: 'http://localhost/sanrafa-master/enviar_datos2.php',
+            url: config.apiServ+'insertar_registro.php',
             data: data
         })
             .then(function (resp) {
