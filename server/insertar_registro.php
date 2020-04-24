@@ -11,7 +11,7 @@ require 'conectar.php';
 
 $conexion=conectarDB();
 
-if ($_POST) {
+//if ($_POST) {
 $idTipo= $dataObject-> idTipo;
 $nombre= $dataObject-> nombre;
 $telefono1= $dataObject-> telefono1;
@@ -22,19 +22,23 @@ $contacto= $dataObject-> contacto;
 $face= $dataObject-> face;
 $imagen= "pepito";
 $activo= 0;
+$likes=0;
+$dislikes=0;
+
+$insercion = "INSERT INTO `comercios`(`idTipo`,`nombre`,`telefono1`,`horario`, `ubicacion`, `descripcion`, `contacto`, `face`, `imagen`, `likes`, `dislikes`, `activo`) 
+							VALUES ('$idTipo','$nombre','$telefono1','$horario', '$ubicacion', '$descripcion', '$contacto', '$face', '$imagen', '$likes', '$dislikes', '$activo' )";
 
 /*echo $idTipo;
 echo $nombre;
 echo $telefono1;
 echo $horario; */
 
-       $insercion = "INSERT INTO `comercios`(`idTipo`,`nombre`,`telefono1`,`horario`, `ubicacion`, `descripcion`, `contacto`, `face`, `imagen`) 
-	   VALUES ('idTipo','nombre','telefono1','horario', 'ubicacion', 'descripcion', 'contacto', 'face', 'imagen')";
+ 
         if ($conexion->query($insercion) === TRUE) {
             echo json_encode(array('error'=>'false','msj'=>'Recurso agregado satisfactoriamente'));
             } else {
                 echo json_encode(array('error'=>'true','msj'=>$conexion->error)); 
             }
             mysqli_close($conexion);
-  }
+//  }
  

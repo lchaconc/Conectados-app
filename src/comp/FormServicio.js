@@ -9,7 +9,7 @@ function FormServicio(props) {
     const { register, handleSubmit, errors } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+        console.log("datos a enviar:", data);
 
         axios({
             method: 'post',
