@@ -21,7 +21,7 @@ function FormServicio(props) {
     const onSubmit = data => {
         //Se agrega el nombre de la imagen 
         //que representa la categoria seleccionada
-        
+
         data.imagen=icono;
         console.log("datos a enviar:", data);              
         
@@ -61,7 +61,7 @@ function FormServicio(props) {
             <br/>
             <div className="row">
                 <div className="col-sm-12 alert alert-danger">
-                    <strong>Importante:</strong> El negocio no será publicado hasta que los datos sean verificados y el pago se haya realizado.
+                    <strong>Importante:</strong> El negocio o servicio no será publicado hasta que los datos hayan sido verificados.
                 </div>
             </div>
 
