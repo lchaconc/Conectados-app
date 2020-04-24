@@ -1,16 +1,28 @@
-import React from 'react';
+import React  from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import config from '../config.json';
+import filtrar from '../modulos/filtrar';
 
-
+var icono;
 
 function FormServicio(props) {
     const { register, handleSubmit, errors } = useForm();
+    
+    const handleCargarIcono=(e)=>{
+        const indice = parseInt(e.target.value);
+
+        if (indice) {
+            icono = filtrar(props.arrayTipos, "idTipo", indice )[0].icono;
+            console.log(icono);                    
+        }
+    }
 
     const onSubmit = data => {
-        console.log("datos a enviar:", data);
-
+        console.log("datos a enviar:", data);        
+        
+        
+/*
         axios({
             method: 'post',
             url: config.apiServ+'insertar_registro.php',
@@ -18,12 +30,12 @@ function FormServicio(props) {
         })
             .then(function (resp) {
                 console.log(resp);
-
             });
+*/
     }
     console.log(errors);
 
-
+  
     return (
         <div className="container">
             <div className="jumbotron text-center">
@@ -57,7 +69,7 @@ function FormServicio(props) {
                         <label className="input-group-text" htmlFor="selTipo">Seleccione el tipo de servicio:</label>
                     </div>
                     <select
-
+                        onClick={handleCargarIcono}
                         className="custom-select"
                         id="selTipo"
                         name="idTipo"
