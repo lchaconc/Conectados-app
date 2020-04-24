@@ -57,7 +57,7 @@ const nombreFace =(url)=> {
                 </button>                
               </div>
               <div className="card-body">
-                  <img src={ assets + props.item.imagen} alt="imagen negocio" className="img-previas" />
+                  <img src={ assets + props.item.imagen +"."+ config.extIcono } alt="imagen negocio" className="img-previas" />
                 <h5 className="card-title">
                     {props.item.nombre}
                 </h5>

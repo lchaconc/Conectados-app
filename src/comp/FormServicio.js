@@ -19,10 +19,12 @@ function FormServicio(props) {
     }
 
     const onSubmit = data => {
-        console.log("datos a enviar:", data);        
+        //Se agrega el nombre de la imagen 
+        //que representa la categoria seleccionada
         
+        data.imagen=icono;
+        console.log("datos a enviar:", data);              
         
-/*
         axios({
             method: 'post',
             url: config.apiServ+'insertar_registro.php',
@@ -31,7 +33,7 @@ function FormServicio(props) {
             .then(function (resp) {
                 console.log(resp);
             });
-*/
+
     }
     console.log(errors);
 
