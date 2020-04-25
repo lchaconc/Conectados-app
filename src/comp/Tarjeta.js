@@ -1,29 +1,58 @@
 import React, {useState, useEffect} from 'react';
 import './tarjeta.css';
 import config from '../config.json';
+const axios = require('axios');
 const assets = config.assetsImg;
 
 const Tarjeta=(props)=> {
-  const [like, setLike ] = useState(false);
+  const [like, setLike ] = useState(false);  
   const [dislike, setDislike ] = useState(false);
+  const [cantLikes, setCantLikes ]= useState(parseInt( props.item.likes) );
+  const [cantDislikes, setCantDislikes ]= useState( parseInt(props.item.dislikes) );
+  
 
 
-  useEffect(()=>{
-    console.log("Like", like);
-    console.log("Dislike", dislike);
+  
+
+
+
+  const handleCalificar=(e)=>{
+    //Extrae del id si es like o disl(ike)
+    const modo=e.target.id.slice(0,1);
+    console.log(modo);
+
+    let id=e.target.id.slice(1);
+    let elemento=null;
+    let valor=1;
+    //console.log(id);
     
-    
-  })
-
-  const calificar=(e)=>{
-    if (e.target.id==="spnLike") {
-        setLike(!like);
+    if (modo==="L") {
+        elemento="likes";        
+        setLike(!like)
         setDislike(false);
+        setCantLikes(cantLikes+1);
+        
     };
-    if (e.target.id==="spnDislike") {
+    if (modo==="D") {
+      elemento="disLikes";      
       setDislike(!dislike);
       setLike(false);
-    };      
+      setCantDislikes(cantDislikes+1);
+    };
+
+    let dataform = {id, elemento, valor }
+    console.log("dataform",dataform);
+    
+    
+    /*
+    axios.post( config.apiServ + "actualiza_likes.php", data )
+    .then((resp) => {
+      console.log("Respuesta", resp);      
+    }, (error)=> {
+      console.log("Error", error);
+      
+    })
+    */
   }
 
 
@@ -41,19 +70,21 @@ const nombreFace =(url)=> {
               <div className="card-header texto-2 text-info">                
                 <button 
                   className="btn btn-outline-info mr-2"
-                  id="spnLike"                  
-                  onClick={calificar}
+                  id={"L"+props.item.idComercio}
+                  onClick={handleCalificar}                  
+                  data-orignal={props.item.likes}
                   >
                   { like ? <i className="fas fa-thumbs-up mr-1"></i> :  <i className="far fa-thumbs-up mr-1"></i> }
-                  {props.item.likes}                
+                  {cantLikes}
                 </button>              
+                
                 <button 
                   className="btn btn-outline-info ml-2"
-                  id="spnDislike"                  
-                  onClick={calificar}
+                  id={"D"+props.item.idComercio}                  
+                  onClick={handleCalificar}
                 >
                   {dislike ? <i className="fas fa-thumbs-down mr-1"></i> :  <i className="far fa-thumbs-down mr-1"></i>}
-                  {props.item.dislikes}                     
+                  {cantDislikes }                     
                 </button>                
               </div>
               <div className="card-body">
