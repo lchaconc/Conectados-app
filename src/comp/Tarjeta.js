@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './tarjeta.css';
 import config from '../config.json';
 const axios = require('axios');
@@ -9,6 +9,7 @@ const Tarjeta=(props)=> {
   const [dislike, setDislike ] = useState(false);
   const [cantLikes, setCantLikes ]= useState(parseInt( props.item.likes) );
   const [cantDislikes, setCantDislikes ]= useState( parseInt(props.item.dislikes) );
+  const [valorDisabled, setValorDisabled ]= useState(false);
   
 
 
@@ -42,17 +43,19 @@ const Tarjeta=(props)=> {
 
     let dataform = {id, elemento, valor }
     console.log("dataform",dataform);
+
+    setValorDisabled(true);
     
     
-    /*
-    axios.post( config.apiServ + "actualiza_likes.php", data )
+    
+    axios.post( config.apiServ + "actualiza_likes.php", dataform )
     .then((resp) => {
       console.log("Respuesta", resp);      
     }, (error)=> {
       console.log("Error", error);
       
     })
-    */
+    
   }
 
 
@@ -67,12 +70,12 @@ const nombreFace =(url)=> {
             <div className="col-sm-6">
             <div className="row">
             <div className="card m-2 text-center">
-              <div className="card-header texto-2 text-info">                
-                <button 
+              <div  className="card-header texto-2 text-info">                
+                  <button 
                   className="btn btn-outline-info mr-2"
                   id={"L"+props.item.idComercio}
-                  onClick={handleCalificar}                  
-                  data-orignal={props.item.likes}
+                  onClick={handleCalificar}  
+                  disabled={valorDisabled}                                                    
                   >
                   { like ? <i className="fas fa-thumbs-up mr-1"></i> :  <i className="far fa-thumbs-up mr-1"></i> }
                   {cantLikes}
@@ -82,6 +85,7 @@ const nombreFace =(url)=> {
                   className="btn btn-outline-info ml-2"
                   id={"D"+props.item.idComercio}                  
                   onClick={handleCalificar}
+                  disabled={valorDisabled}
                 >
                   {dislike ? <i className="fas fa-thumbs-down mr-1"></i> :  <i className="far fa-thumbs-down mr-1"></i>}
                   {cantDislikes }                     

@@ -35,7 +35,7 @@ echo $horario; */
 
  
         if ($conexion->query($insercion) === TRUE) {
-            echo json_encode(array('error'=>'false','msj'=>'Recurso agregado satisfactoriamente'));
+            echo json_encode(array('error'=>'false','msj'=>'Registro enviado satisfactoriamente. En cuanto sean verficados los datos, estará siendo publicado.'));
             } else {
                 echo json_encode(array('error'=>'true','msj'=>$conexion->error)); 
             }

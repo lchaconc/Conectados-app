@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import config from '../config.json';
 import filtrar from '../modulos/filtrar';
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.min.css';
+import 'alertifyjs/build/css/themes/default.min.css';
 
 var icono;
 
@@ -32,6 +35,12 @@ function FormServicio(props) {
         })
             .then(function (resp) {
                 console.log(resp);
+                alertify
+                .alert(config.nombre,resp.data.msj, function(){
+                    //alertify.message('OK');
+                    console.log("ok");
+                    
+                });
             });
 
     }
