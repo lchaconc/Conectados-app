@@ -3,8 +3,12 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Content-Type: text/html; charset=utf-8");
 $method = $_SERVER['REQUEST_METHOD'];
-$tabla =  "comercios";
-$sql= "SELECT * FROM $tabla ORDER BY idComercio";
+
+$sql= "SELECT comercios.*, tipos.nombreTipo  
+FROM comercios 
+INNER JOIN tipos
+ON comercios.idTipo = tipos.idTipo
+ORDER BY idComercio";
 
 include "conectar.php";
 sleep(1);
