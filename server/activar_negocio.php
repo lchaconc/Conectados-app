@@ -12,7 +12,7 @@ require 'conectar.php';
 
 $conexion = conectarDB();
 $idComercio = $dataObject-> idComercio;
-$activo= "1";
+$activo= $dataObject-> activo;
 
    $actualizacion = "UPDATE `comercios` SET `activo`= '$activo' WHERE `idComercio`='$idComercio'";
 
