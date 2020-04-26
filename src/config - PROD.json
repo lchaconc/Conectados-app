@@ -2,5 +2,6 @@
     "nombre": "Conectados",
     "version": "1.0",
     "apiServ": "https://mundologan.xyz/porton-prado/server/",
-    "assetsImg": "https://mundologan.xyz/porton-prado/server/assets/img/"
+    "assetsImg": "https://mundologan.xyz/porton-prado/server/assets/img/",
+	"extIcono": "png"
 }

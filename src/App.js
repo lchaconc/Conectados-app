@@ -38,7 +38,12 @@ function App() {
   })
 
   const handleCargarComponente=(e)=>{
-    const opcion = e.target.title;
+    let opcion= null;
+    if (e) {
+      opcion= e.target.title
+    }
+      
+    
     console.log(opcion);
 
     switch (opcion) {
@@ -57,7 +62,7 @@ function App() {
     
       default:
         console.log("opcion fuera de rango");
-        
+        setComponente (<Menu handleCargarComponente={handleCargarComponente} />)
         break;
     }
     

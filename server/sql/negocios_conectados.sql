@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 20, 2020 at 04:04 AM
+-- Generation Time: Apr 25, 2020 at 06:26 PM
 -- Server version: 5.7.29
 -- PHP Version: 7.3.12
 
@@ -44,19 +44,20 @@ CREATE TABLE IF NOT EXISTS `comercios` (
   `dislikes` int(11) NOT NULL,
   `imagen` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fechaIngreso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `activo` tinyint(1) NOT NULL COMMENT 'cuando se inserta el registro es 0 y se activa por el administrado',
   PRIMARY KEY (`idComercio`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `comercios`
 --
 
-INSERT INTO `comercios` (`idComercio`, `nombre`, `idTipo`, `descripcion`, `telefono1`, `telefono2`, `contacto`, `face`, `horario`, `ubicacion`, `likes`, `dislikes`, `imagen`, `fechaIngreso`) VALUES
-(1, 'Salón de belleza Elena', 12, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'belleza.png', '2020-04-19 06:28:48'),
-(2, 'Reparaciones El Macho Bueno', 22, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'multiservicio.png', '2020-04-19 06:28:48'),
-(3, 'El Gallo Veloz', 21, 'Le hacemos el mandado que necesite: citas médicas, farmacia, compras en supermecados y todo lo que necesite.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'mensajero.png', '2020-04-19 06:28:48'),
-(4, 'Dulces momentos', 9, 'La mejor repostería. Hechas con la receta de la abuela. No se arrepentirá.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'postre.png', '2020-04-19 06:28:48'),
-(5, 'El fogón de Mima', 9, 'Comida casera de la buena... Casadas, empanadas, tortillas de queso y gallos de salchichón.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'comida.png', '2020-04-19 06:28:48');
+INSERT INTO `comercios` (`idComercio`, `nombre`, `idTipo`, `descripcion`, `telefono1`, `telefono2`, `contacto`, `face`, `horario`, `ubicacion`, `likes`, `dislikes`, `imagen`, `fechaIngreso`, `activo`) VALUES
+(1, 'Salón de belleza Elena', 12, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore hic perspiciatis vero tenetur beatae sint atque esse quod.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 17, 2, 'belleza', '2020-04-19 06:28:48', 1),
+(2, 'Reparaciones El Macho Bueno', 22, 'Le reparamos desde su oola arrocera hasta su televisor. 100% garantizado', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 24, 1, 'multiservicio', '2020-04-19 06:28:48', 0),
+(3, 'El Gallo Veloz', 21, 'Le hacemos el mandado que necesite: citas médicas, farmacia, compras en supermecados y todo lo que necesite.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'mensajero', '2020-04-19 06:28:48', 0),
+(4, 'Dulces momentos', 9, 'La mejor repostería. Hechas con la receta de la abuela. No se arrepentirá.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'postre', '2020-04-19 06:28:48', 0),
+(5, 'El fogón de Mima', 9, 'Comida casera de la buena... Casados, empanadas, tortillas de queso y gallos de salchichón.', '22334455', NULL, 'Elena Prado', 'https://www.facebook.com/saladebellezamarme/', 'Lunes a sábado de 7 am - 3 pm', 'Casa 27D ', 15, 2, 'comida', '2020-04-19 06:28:48', 0);
 
 -- --------------------------------------------------------
 

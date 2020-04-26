@@ -39,6 +39,7 @@ function FormServicio(props) {
                 .alert(config.nombre,resp.data.msj, function(){
                     //alertify.message('OK');
                     console.log("ok");
+                    props.handleCargarComponente()
                     
                 });
             });
