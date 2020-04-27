@@ -26,7 +26,7 @@ function FormServicio(props) {
         //que representa la categoria seleccionada
 
         data.imagen=icono;
-        console.log("datos a enviar:", data);              
+        console.log("*******datos a enviar:", data);              
         
         axios({
             method: 'post',
@@ -81,7 +81,7 @@ function FormServicio(props) {
                         <label className="input-group-text" htmlFor="selTipo">Seleccione el tipo de servicio:</label>
                     </div>
                     <select
-                        onClick={handleCargarIcono}
+                        onChange={handleCargarIcono}
                         className="custom-select"
                         id="selTipo"
                         name="idTipo"

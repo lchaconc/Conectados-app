@@ -20,7 +20,7 @@ $activo= $dataObject-> activo;
 
    if($resultadoActualizacion)
    {
-    echo json_encode(array('error'=>'false','msj'=>'Datos actualizados correctamente'));
+    echo json_encode(array('error'=>'false','msj'=>'Registro actualizado de forma satisfactoria.'));
    }
    else
    {
