@@ -13,12 +13,12 @@ $conexion=conectarDB();
 
 //if ($_POST) {
 $idTipo= $dataObject-> idTipo;
-$nombre= utf8_decode($dataObject-> nombre);
+$nombre= $dataObject-> nombre;
 $telefono1= $dataObject-> telefono1;
-$horario= utf8_decode($dataObject-> horario);
-$ubicacion= utf8_decode($dataObject-> ubicacion);
-$descripcion= utf8_decode($dataObject-> descripcion);
-$contacto= utf8_decode($dataObject-> contacto);
+$horario= $dataObject-> horario;
+$ubicacion= $dataObject-> ubicacion;
+$descripcion= $dataObject-> descripcion;
+$contacto= $dataObject-> contacto;
 $face= $dataObject-> face;
 $imagen=$dataObject-> imagen;
 $activo=0;
