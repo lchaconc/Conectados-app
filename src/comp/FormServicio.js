@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import config from '../config.json';
@@ -11,13 +11,13 @@ var icono;
 
 function FormServicio(props) {
     const { register, handleSubmit, errors } = useForm();
-    
-    const handleCargarIcono=(e)=>{
+
+    const handleCargarIcono = (e) => {
         const indice = parseInt(e.target.value);
 
         if (indice) {
-            icono = filtrar(props.arrayTipos, "idTipo", indice )[0].icono;
-            console.log(icono);                    
+            icono = filtrar(props.arrayTipos, "idTipo", indice)[0].icono;
+            console.log(icono);
         }
     }
 
@@ -25,29 +25,29 @@ function FormServicio(props) {
         //Se agrega el nombre de la imagen 
         //que representa la categoria seleccionada
 
-        data.imagen=icono;
-        console.log("*******datos a enviar:", data);              
-        
+        data.imagen = icono;
+        console.log("*******datos a enviar:", data);
+
         axios({
             method: 'post',
-            url: config.apiServ+'insertar_registro.php',
+            url: config.apiServ + 'insertar_registro.php',
             data: data
         })
             .then(function (resp) {
                 console.log(resp);
                 alertify
-                .alert(config.nombre,resp.data.msj, function(){
-                    //alertify.message('OK');
-                    console.log("ok");
-                    props.handleCargarComponente()
-                    
-                });
+                    .alert(config.nombre, resp.data.msj, function () {
+                        //alertify.message('OK');
+                        console.log("ok");
+                        props.handleCargarComponente()
+
+                    });
             });
 
     }
     console.log(errors);
 
-  
+
     return (
         <div className="container">
             <div className="jumbotron text-center">
@@ -62,13 +62,13 @@ function FormServicio(props) {
                 </button>
             </div>
 
-            <hr/>
+            <hr />
             <div className="row">
                 <div className="col-sm-12">
                     <h4 className="text-info">QUIERO OFRECER:</h4>
                 </div>
             </div>
-            <br/>
+            <br />
             <div className="row">
                 <div className="col-sm-12 alert alert-danger">
                     <strong>Importante:</strong> El negocio o servicio no será publicado hasta que los datos hayan sido verificados.
@@ -134,7 +134,7 @@ function FormServicio(props) {
 
                     <div className="col-sm-6">
 
-                    <div className="input-group mb-3">
+                        <div className="input-group mb-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="spnTelefono1">Teléfono 2</span>
                             </div>
@@ -147,26 +147,26 @@ function FormServicio(props) {
                                 ref={register}
                             />
                         </div>
-                    
+
                     </div>
 
 
                 </div>
 
                 <div className="input-group mb-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="spnHorario">Horario</span>
-                            </div>
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Horario de atención. Disponibilidad"
-                                id="txtHorario"
-                                name="horario"
-                                ref={register({ required: true })}
-                            />
-                        </div>
-                        {errors.horario && <p className="text-danger" >Horario requerido</p>}
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="spnHorario">Horario</span>
+                    </div>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Horario de atención. Disponibilidad"
+                        id="txtHorario"
+                        name="horario"
+                        ref={register({ required: true })}
+                    />
+                </div>
+                {errors.horario && <p className="text-danger" >Horario requerido</p>}
 
 
                 <div className="input-group mb-3">
