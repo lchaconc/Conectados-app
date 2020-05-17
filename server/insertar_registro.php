@@ -15,6 +15,7 @@ $conexion=conectarDB();
 $idTipo= $dataObject-> idTipo;
 $nombre= $dataObject-> nombre;
 $telefono1= $dataObject-> telefono1;
+$telefono2= $dataObject-> telefono2;
 $horario= $dataObject-> horario;
 $ubicacion= $dataObject-> ubicacion;
 $descripcion= $dataObject-> descripcion;
@@ -25,8 +26,22 @@ $activo=0;
 $likes=0;
 $dislikes=0;
 
-$insercion = "INSERT INTO `comercios`(`idTipo`,`nombre`,`telefono1`,`horario`, `ubicacion`, `descripcion`, `contacto`, `face`, `imagen`, `likes`, `dislikes`, `activo`) 
-							VALUES ('$idTipo','$nombre','$telefono1','$horario', '$ubicacion', '$descripcion', '$contacto', '$face', '$imagen', '$likes', '$dislikes', '$activo' )";
+
+/*
+Codificación UTF8
+*/
+$nombre= utf8_decode($nombre);
+$horario= utf8_decode($horario); 
+$ubicacion= utf8_decode($ubicacion); 
+$descripcion= utf8_decode($descripcion); 
+$contacto= utf8_decode($contacto); 
+$face= utf8_decode($face); 
+
+
+
+
+$insercion = "INSERT INTO `comercios`(`idTipo`,`nombre`,`telefono1`,  `telefono2`, `horario`, `ubicacion`, `descripcion`, `contacto`, `face`, `imagen`, `likes`, `dislikes`, `activo`) 
+							VALUES ('$idTipo','$nombre','$telefono1',  '$telefono2', '$horario', '$ubicacion', '$descripcion', '$contacto', '$face', '$imagen', '$likes', '$dislikes', '$activo' )";
 
 /*echo $idTipo;
 echo $nombre;

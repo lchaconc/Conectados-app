@@ -118,7 +118,7 @@ function FormServicio(props) {
                     <div className="col-sm-6">
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" id="spnTelefono1">Teléfono</span>
+                                <span className="input-group-text" id="spnTelefono1">Teléfono 1</span>
                             </div>
                             <input
                                 type="text"
@@ -133,7 +133,27 @@ function FormServicio(props) {
                     </div>
 
                     <div className="col-sm-6">
-                        <div className="input-group mb-3">
+
+                    <div className="input-group mb-3">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" id="spnTelefono1">Teléfono 2</span>
+                            </div>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Teléfono opcional"
+                                id="txtTelefono2"
+                                name="telefono2"
+                                ref={register}
+                            />
+                        </div>
+                    
+                    </div>
+
+
+                </div>
+
+                <div className="input-group mb-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="spnHorario">Horario</span>
                             </div>
@@ -147,10 +167,6 @@ function FormServicio(props) {
                             />
                         </div>
                         {errors.horario && <p className="text-danger" >Horario requerido</p>}
-                    </div>
-
-
-                </div>
 
 
                 <div className="input-group mb-3">
