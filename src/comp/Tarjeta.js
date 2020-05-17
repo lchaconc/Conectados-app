@@ -108,7 +108,20 @@ const nombreFace =(url)=> {
                 <hr/>
                 <i className="fas fa-map-marker-alt"> {props.item.ubicacion }</i>  
                 <hr/>
-                <i className="fab fa-whatsapp-square ico-what texto-1"></i> <span className="texto-1" > {props.item.telefono1} </span>
+                  <a className="link-tel" href={"tel:"+props.item.telefono1}>
+                  <i className="fab fa-whatsapp-square ico-what texto-1"></i> 
+                  <span className="texto-1" > {props.item.telefono1} </span>
+                  </a>
+                <br/>                
+                {
+                  props.item.telefono2 &&
+                  <React.Fragment>
+                     <a className="link-tel" href={"tel:"+props.item.telefono2}>
+                      <i className="fas fa-phone-volume" /> 
+                      <span className="texto-1" > {props.item.telefono2} </span>
+                    </a>
+                  </React.Fragment>
+                }
                 <br/>
                 <a href={props.item.face} target="_blnak"  >
                     <i className="fab fa-facebook-square texto-1"></i> <span className="texto-1" > {nombreFace(props.item.face)}                     </span>

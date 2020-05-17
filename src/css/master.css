@@ -2,7 +2,41 @@ body {
     background-color:#fff;
 }
 
+.jumbotron {
+    background-color: #cdd8e3;
+}
+
 .img-splash {
     width: 50%;
     height: auto;
 }
+
+
+
+.link-tel:visited {    
+    font-weight: bold;
+    text-decoration: none;
+    color: crimson;
+}
+
+
+.link-tel:link {
+    font-weight: bold;
+    text-decoration: none;
+    color:  #001a00;
+  }
+  
+  /* visited link */
+  .link-tel:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  .link-tel:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  .link-tel:active {
+    color: green;
+  }
