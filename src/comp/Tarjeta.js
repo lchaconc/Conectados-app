@@ -100,7 +100,7 @@ const nombreFace =(url)=> {
                   <strong>Contacto: { props.item.contacto }</strong>
                 </p>
                 <p className="card-text">
-                  {props.item.descripcion}
+                  <strong>Descripción: </strong> {props.item.descripcion}
                 </p>            
               </div>
               <div className="card-footer text-muted">

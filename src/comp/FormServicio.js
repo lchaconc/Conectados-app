@@ -109,6 +109,7 @@ function FormServicio(props) {
                         placeholder="Nombre del negocio. Por ejemplo 'Fogón de doña Chela' "
                         id="selTipo"
                         name="nombre"
+                        maxLength="128"
                         ref={register({ required: true })}
                     />
                 </div>
@@ -121,7 +122,8 @@ function FormServicio(props) {
                                 <span className="input-group-text" id="spnTelefono1">Teléfono 1</span>
                             </div>
                             <input
-                                type="text"
+                                type="tel"
+                                pattern="[0-9]{8}"
                                 className="form-control"
                                 placeholder="Número de teléfono para contacto"
                                 id="txtTelefono1"
@@ -139,7 +141,8 @@ function FormServicio(props) {
                                 <span className="input-group-text" id="spnTelefono1">Teléfono 2</span>
                             </div>
                             <input
-                                type="text"
+                               type="tel"
+                               pattern="[0-9]{8}"
                                 className="form-control"
                                 placeholder="Teléfono opcional"
                                 id="txtTelefono2"
@@ -163,6 +166,7 @@ function FormServicio(props) {
                         placeholder="Horario de atención. Disponibilidad"
                         id="txtHorario"
                         name="horario"
+                        maxLength="250"
                         ref={register({ required: true })}
                     />
                 </div>
@@ -178,6 +182,7 @@ function FormServicio(props) {
                         className="form-control"
                         placeholder="Ubicación (Número de casa)"
                         id="txtUbicacion"
+                        maxLength="256"
                         name="ubicacion"
                         ref={register({ required: true })}
                     />
@@ -193,21 +198,20 @@ function FormServicio(props) {
                         className="form-control"
                         placeholder="Dirección de pagina de Facebook del negocio"
                         id="txtFace"
+                        maxLength="512"
                         name="face"
                         ref={register}
                     />
                 </div>
 
 
-                <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="spnDescripcion">Descripción</span>
-                    </div>
-                    <input
-                        type="text"
+                <div className="form-group">
+                    <label className="input-group-text" htmlFor="txtDescripcion">Descripción</label>
+                    <textarea                        
                         className="form-control"
-                        placeholder="Descripción o detalles del servicio o negocio"
+                        placeholder="Breve detalle del servicio o negocio (Max 512 caracteres)"
                         id="txtDescripcion"
+                        maxLength="512"
                         name="descripcion"
                         ref={register({ required: true })}
                     />

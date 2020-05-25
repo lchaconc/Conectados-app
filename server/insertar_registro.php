@@ -29,14 +29,14 @@ $dislikes=0;
 
 /*
 Codificación UTF8
-*/
+
 $nombre= utf8_decode($nombre);
 $horario= utf8_decode($horario); 
 $ubicacion= utf8_decode($ubicacion); 
 $descripcion= utf8_decode($descripcion); 
 $contacto= utf8_decode($contacto); 
 $face= utf8_decode($face); 
-
+*/
 
 
 
