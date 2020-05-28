@@ -9,6 +9,16 @@ import 'alertifyjs/build/css/themes/default.min.css';
 
 var icono;
 
+const handleValidarRepetido =( )=> {
+    let num1 = document.getElementById("txtTelefono1").value;
+    let num2 = document.getElementById("txtTelefono2").value;
+
+if (num1 === num2) {
+    alertify.alert(config.nombre, "Los números de telefóno deben ser diferentes." );
+}
+}
+
+
 function FormServicio(props) {
     const { register, handleSubmit, errors } = useForm();
 
@@ -147,6 +157,7 @@ function FormServicio(props) {
                                 placeholder="Teléfono opcional"
                                 id="txtTelefono2"
                                 name="telefono2"
+                                onBlur={handleValidarRepetido}
                                 ref={register}
                             />
                         </div>

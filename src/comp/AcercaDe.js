@@ -70,6 +70,18 @@ function AcercaDe(props) {
             </p>
             </div>
         </div>
+<div className="row">
+    <div className="col-sm-12 text-center">
+        
+    <span className="badge badge-info  p-2 mb-2">
+            <strong>{config.nombre} </strong> 
+            <br/>
+            App desarrollada por Luis Chacón Campos
+            <br/> 
+            &copy; Costa Rica, 2020
+        </span>
+    </div>
+</div>
         
         
         </div>
