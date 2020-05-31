@@ -129,32 +129,34 @@ function FormServicio(props) {
                     <div className="col-sm-6">
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" id="spnTelefono1">Teléfono 1</span>
+                                <span className="input-group-text" id="spnTelefono1">
+                                   <i className="fab fa-whatsapp-square mx-2"></i> WhatsApp
+                                </span>
                             </div>
                             <input
                                 type="tel"
                                 pattern="[0-9]{8}"
                                 className="form-control"
-                                placeholder="Número de teléfono para contacto"
+                                placeholder="Número de WhatsApp"
                                 id="txtTelefono1"
                                 name="telefono1"
                                 ref={register({ required: true })}
                             />
                         </div>
-                        {errors.telefono1 && <p className="text-danger" >Teléfono requerido</p>}
+                        {errors.telefono1 && <p className="text-danger" >Campo requerido</p>}
                     </div>
 
                     <div className="col-sm-6">
 
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" id="spnTelefono1">Teléfono 2</span>
+                                <span className="input-group-text" id="spnTelefono1">Teléfono opcional </span>
                             </div>
                             <input
                                type="tel"
                                pattern="[0-9]{8}"
                                 className="form-control"
-                                placeholder="Teléfono opcional"
+                                placeholder="Teléfono fijo opcional o celular"
                                 id="txtTelefono2"
                                 name="telefono2"
                                 onBlur={handleValidarRepetido}
