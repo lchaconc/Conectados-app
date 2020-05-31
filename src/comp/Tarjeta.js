@@ -11,12 +11,6 @@ const Tarjeta = (props) => {
   const [cantDislikes, setCantDislikes] = useState(parseInt(props.item.dislikes));
   const [valorDisabled, setValorDisabled] = useState(false);
 
-
-
-
-
-
-
   const handleCalificar = (e) => {
     //Extrae del id si es like o disl(ike)
     const modo = e.target.id.slice(0, 1);
@@ -108,17 +102,17 @@ const Tarjeta = (props) => {
               <hr />
               <i className="fas fa-map-marker-alt"> {props.item.ubicacion}</i>
               <hr />
-              <a className="link-tel" href={"tel:" + props.item.telefono1}>
-                <i className="fab fa-whatsapp-square ico-what texto-1"></i>
-                <span className="texto-1" > {props.item.telefono1} </span>
+              <a className="link-tel" href={'https://wa.me/506' + props.item.telefono1}>
+                <i className="fab fa-whatsapp-square ico-what texto-1"></i> <span className="texto-1" > 
+                    {props.item.telefono1} 
+                </span>
               </a>
               <br />
               {
                 props.item.telefono2 &&
                 <React.Fragment>
                   <a className="link-tel" href={"tel:" + props.item.telefono2}>
-                    <i className="fas fa-phone-volume" />
-                    <span className="texto-1" > {props.item.telefono2} </span>
+                    <i className="fas fa-phone-volume" /> <span className="texto-1" > {props.item.telefono2} </span>
                   </a>
                 </React.Fragment>
               }
