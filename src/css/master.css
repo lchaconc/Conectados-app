@@ -47,3 +47,10 @@ h1 {
   .link-tel:active {
     color: green;
   }
+
+  .requerido {
+    font-weight: bold;
+    color: red;
+  }
+
+  

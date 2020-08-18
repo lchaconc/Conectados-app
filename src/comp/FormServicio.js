@@ -88,8 +88,12 @@ function FormServicio(props) {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
-                        <label className="input-group-text" htmlFor="selTipo">Seleccione el tipo de servicio:</label>
+                        <label className="input-group-text" htmlFor="selTipo">
+                            <span className="requerido">*</span>
+                            Seleccione el tipo de servicio:
+                        </label>                    
                     </div>
+
                     <select
                         onChange={handleCargarIcono}
                         className="custom-select"
@@ -107,11 +111,14 @@ function FormServicio(props) {
 
                     </select>
                 </div>
-                {errors.idTipo && <p className="text-danger" >Debe seleccionar el tipo de negocio</p>}
+                {errors.idTipo && <p className="text-danger" >Debe seleccionar el tipo de servicio que ofrece</p>}
 
                 <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="spnNombre">Nombre comercial</span>
+                    <div className="input-group-prepend">                                            
+                        <span className="input-group-text" id="spnNombre">
+                            <span className="requerido">*</span>
+                            Nombre comercial                            
+                            </span>
                     </div>
                     <input
                         type="text"
@@ -130,6 +137,7 @@ function FormServicio(props) {
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="spnTelefono1">
+                                    <span className="requerido">*</span>
                                    <i className="fab fa-whatsapp-square mx-2"></i> WhatsApp
                                 </span>
                             </div>
@@ -171,7 +179,10 @@ function FormServicio(props) {
 
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="spnHorario">Horario</span>
+                        <span className="input-group-text" id="spnHorario">
+                            <span className="requerido">*</span>
+                            Horario
+                        </span>
                     </div>
                     <input
                         type="text"
@@ -186,21 +197,32 @@ function FormServicio(props) {
                 {errors.horario && <p className="text-danger" >Horario requerido</p>}
 
 
-                <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="spnDireccion">Ubicación</span>
-                    </div>
-                    <input
-                        type="text"
+
+
+              
+
+                <div className="form-group">
+                    <label className="input-group-text" htmlFor="txtUbicacion">
+                            <span className="requerido">*</span>
+                            Ubicación (Dirección)
+                        </label>
+                    <textarea                        
                         className="form-control"
-                        placeholder="Ubicación (Número de casa)"
+                        placeholder="Cantón, Urbanización, Número de casa"
                         id="txtUbicacion"
-                        maxLength="256"
+                        maxLength="512"
                         name="ubicacion"
                         ref={register({ required: true })}
                     />
                 </div>
                 {errors.ubicacion && <p className="text-danger" >Ubicación requerida</p>}
+
+
+
+
+
+
+
 
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
@@ -219,7 +241,10 @@ function FormServicio(props) {
 
 
                 <div className="form-group">
-                    <label className="input-group-text" htmlFor="txtDescripcion">Descripción</label>
+                    <label className="input-group-text" htmlFor="txtDescripcion">
+                        <span className="requerido">*</span>
+                            Descripción
+                        </label>
                     <textarea                        
                         className="form-control"
                         placeholder="Breve detalle del servicio o negocio (Max 512 caracteres)"
@@ -233,7 +258,10 @@ function FormServicio(props) {
 
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="spnDireccion">Persona de contacto</span>
+                        <span className="input-group-text" id="spnDireccion">
+                            <span className="requerido">*</span>
+                            Persona de contacto
+                        </span>
                     </div>
                     <input
                         type="text"
