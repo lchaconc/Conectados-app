@@ -208,7 +208,7 @@ function FormServicio(props) {
                         </label>
                     <textarea                        
                         className="form-control"
-                        placeholder="Cantón, Urbanización, Número de casa"
+                        placeholder="Distrito, Urbanización, Número de casa"
                         id="txtUbicacion"
                         maxLength="512"
                         name="ubicacion"

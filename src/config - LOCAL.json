@@ -1,7 +1,0 @@
-{
-    "nombre": "Portón del Prado en Línea V1.2.4",
-    "version": "1.2.4",
-    "apiServ": "http://192.168.0.18/conectados-app/server/",
-    "assetsImg": "http://192.168.0.18/conectados-app/server/assets/img/",
-	"extIcono": "png"
-}

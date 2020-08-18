@@ -8,7 +8,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 include "conectar.php";
 //sleep(1);
 
-$sql= "CALL GET_ALL_COMERCIOS()";
+$sql= "SELECT comercios.*, tipos.nombreTipo  
+FROM comercios 
+INNER JOIN tipos
+ON comercios.idTipo = tipos.idTipo
+ORDER BY idComercio DESC";
 
 function desconectar($conexion){
 
