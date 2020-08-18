@@ -4,17 +4,11 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Content-Type: text/html; charset=utf-8");
 $method = $_SERVER['REQUEST_METHOD'];
 
-$sql= "SELECT comercios.*, tipos.nombreTipo  
-FROM comercios 
-INNER JOIN tipos
-ON comercios.idTipo = tipos.idTipo
-ORDER BY idComercio";
 
 include "conectar.php";
-sleep(1);
-	
+//sleep(1);
 
-
+$sql= "CALL GET_ALL_COMERCIOS()";
 
 function desconectar($conexion){
 
@@ -23,8 +17,7 @@ function desconectar($conexion){
         if($close){
             echo '';
         }else{
-            echo 'Ha sucedido un error inexperado en la desconexion de la base de datos
-';
+            echo 'Ha sucedido un error inexperado en la desconexion de la base de datos';
         }
 
     return $close;

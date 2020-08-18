@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Content-Type: text/html; charset=utf-8");
 $method = $_SERVER['REQUEST_METHOD'];
 $tabla =  "comercios";
-$sql= "SELECT * FROM $tabla WHERE activo=1";
+$sql= 'CALL GET_COMERCIOS_ACTIVOS()';
 
 include "conectar.php";
 sleep(1);
